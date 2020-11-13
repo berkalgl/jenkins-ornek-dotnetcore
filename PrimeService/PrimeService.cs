@@ -6,6 +6,7 @@ namespace Prime.Services
     {
         public bool IsPrime(int candidate)
         {
+            int kullanilmayan_ve_uzun_bir_isme_sahip_degisken = 1;
             if (candidate < 2)
             {
                 return false;
