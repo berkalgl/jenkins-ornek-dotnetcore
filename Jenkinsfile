@@ -37,6 +37,14 @@ pipeline {
             }
         }
 
+        stage("Kalite Kapısı") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
         stage('Test') { 
             steps {
                 sh 'dotnet test --logger:"trx;LogFileName=unit_tests.testresults"' 
